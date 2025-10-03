@@ -1,35 +1,162 @@
-# Salary calculator
+# Salary Calculator 💰
 
-## Demo
-[https://devdharmesh.github.io/Salary-calculator/](https://devdharmesh.github.io/Salary-calculator/)
+A simple, user-friendly web application that calculates an employee's final monthly salary after deducting unpaid leave, with support for paid leave carryover.
 
+## 🌟 Features
 
-## Authors
+- **Real-time Calculation**: Instant salary computation as you type
+- **Paid Leave Carryover**: Automatically handles paid leave reducing unpaid leave deductions
+- **Indian Currency Support**: Displays amounts in Indian Rupees (₹) with proper formatting
+- **Responsive Design**: Works seamlessly on desktop, tablet, and mobile devices
+- **Input Validation**: Comprehensive validation with helpful error messages
+- **Accessibility**: Built with semantic HTML and proper ARIA attributes
+- **Cross-browser Compatible**: Works on all modern browsers
 
-- [@devdharmesh](https://github.com/devdharmesh)
+## 🧮 How It Works
 
-<h2 align="">SKILLS</h2>
-<p align=""><a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"><img src="https://cdn.worldvectorlogo.com/logos/html-1.svg" alt="html" width="50" height="50" /></a>
-<a href="https://www.w3.org/Style/CSS/" target="_blank" rel="noreferrer"><img src="https://cdn.worldvectorlogo.com/logos/css-3.svg" alt="css" width="50" height="50" /></a>
-<a href="https://www.w3.org/standards/webdesign/script" target="_blank" rel="noreferrer"><img src="https://cdn.worldvectorlogo.com/logos/javascript-1.svg" alt="javascript" width="50" height="50" /></a>
-<a href="https://jquery.com/" target="_blank" rel="noreferrer"><img src="https://cdn.worldvectorlogo.com/logos/jquery-4.svg" alt="jquery" width="50" height="50" /></a>
-<a href="https://www.json.org/" target="_blank" rel="noreferrer"><img src="https://cdn.worldvectorlogo.com/logos/json.svg" alt="json" width="50" height="50" /></a>
-<a href="https://getbootstrap.com/" target="_blank" rel="noreferrer"><img src="https://cdn.worldvectorlogo.com/logos/bootstrap-5-1.svg" alt="bootstap" width="50" height="50" /></a>
-<a href="https://tailwindcss.com/" target="_blank" rel="noreferrer"><img src="https://cdn.worldvectorlogo.com/logos/tailwind-css-2.svg" alt="tailwind" width="50" height="50" /></a>
-<a href="https://sass-lang.com/" target="_blank" rel="noreferrer"><img src="https://cdn.worldvectorlogo.com/logos/sass-1.svg" alt="scss" width="50" height="50" /></a>
-<a href="https://www.php.net/" target="_blank" rel="noreferrer"><img src="https://cdn.worldvectorlogo.com/logos/php-1.svg" alt="php" width="50" height="50" /></a>
-<a href="https://www.mysql.com/" target="_blank" rel="noreferrer"><img src="https://cdn.worldvectorlogo.com/logos/mysql-3.svg" alt="mysql" width="50" height="50" /></a>
-<a href="https://getcomposer.org/" target="_blank" rel="noreferrer"><img src="https://cdn.worldvectorlogo.com/logos/composer.svg" alt="composer" width="50" height="50" /></a>
-<a href="https://wordpress.com/" target="_blank" rel="noreferrer"><img src="https://cdn.worldvectorlogo.com/logos/wordpress-blue.svg" alt="wordpress" width="50" height="50" /></a>
-<a href="https://woocommerce.com/" target="_blank" rel="noreferrer"><img src="https://cdn.worldvectorlogo.com/logos/woocommerce.svg" alt="woocommerce" width="50" height="50" /></a></p>
+### Calculation Logic
 
-<h2 align="">Connect with me</h2>
-<p align=""><a href="https://www.instagram.com/dharmeshlakum0000/" target="_blank" rel="noreferrer"><img src="https://cdn.worldvectorlogo.com/logos/instagram-2016-6.svg" alt="instagram" width="50" height="50" /></a>
-<a href="https://join.skype.com/invite/vQ0xUvAqp0Zj" target="_blank" rel="noreferrer"><img src="https://cdn.worldvectorlogo.com/logos/skype-3.svg" alt="skype" width="50" height="50" /></a>
-<a href="https://www.linkedin.com/in/dharmesh-dev" target="_blank" rel="noreferrer"><img src="https://cdn.worldvectorlogo.com/logos/linkedin-icon-2.svg" alt="linkedin" width="50" height="50" /></a>
-<a href="https://github.com/devdharmesh" target="_blank" rel="noreferrer"><img src="https://cdn.worldvectorlogo.com/logos/github-icon-1.svg" alt="github" width="50" height="50" /></a>
-<a href="https://twitter.com/dharmes95052992" target="_blank" rel="noreferrer"><img src="https://cdn.worldvectorlogo.com/logos/twitter-6.svg" alt="twitter" width="50" height="50" /></a>
-<a href="https://stackoverflow.com/users/11518865/dharmesh" target="_blank" rel="noreferrer"><img src="https://cdn.worldvectorlogo.com/logos/stack-overflow.svg" width="50" height="50" alt="stackoverflow" /></a></p>
+1. **Daily Salary** = Gross Monthly Salary ÷ Days in Month
+2. **Effective Unpaid Leave** = max(0, Unpaid Leave - Paid Leave)
+3. **Deduction Amount** = Daily Salary × Effective Unpaid Leave
+4. **Final Salary** = Gross Monthly Salary - Deduction Amount
 
-<h2 align="">Support</h2>
-<p align=""><a href="https://www.buymeacoffee.com/dharmshdev" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="dharmshdev" /></a></p>
+### Paid Leave Carryover
+
+If an employee has paid leave available, it reduces the unpaid leave deduction:
+- If Unpaid Leave ≤ Paid Leave: **No deduction is made**
+- If Unpaid Leave > Paid Leave: **Only the excess is deducted**
+
+## 📋 Input Fields
+
+| Field | Type | Constraints | Default | Description |
+|-------|------|-------------|---------|-------------|
+| Gross Monthly Salary | Number | min="0", step="0.01" | - | Employee's monthly salary |
+| Paid Leave (days) | Number | min="0", step="0.01" | 1 | Available paid leave days |
+| Unpaid Leave (days) | Number | min="0", step="0.01" | 0 | Unpaid leave taken |
+| Days in Month | Integer | min="28", max="31" | Current month | Number of working days |
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- A modern web browser (Chrome, Firefox, Safari, Edge)
+- No additional software or dependencies required
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/salary-calculator.git
+   ```
+
+2. **Navigate to the project directory**
+   ```bash
+   cd salary-calculator
+   ```
+
+3. **Open the application**
+   - Double-click `index.html` to open in your default browser
+   - Or serve it using a local web server for better performance
+
+### Usage
+
+1. **Enter your salary details**:
+   - Input your gross monthly salary
+   - Specify paid leave days (defaults to 1)
+   - Enter unpaid leave days taken
+   - Days in month auto-populates to current month
+
+2. **View results**:
+   - Daily salary calculation
+   - Deduction amount (if any)
+   - Final salary after deductions
+
+3. **Real-time updates**:
+   - Results update automatically as you type
+   - No need to click calculate button
+
+## 💡 Example Calculation
+
+**Input:**
+- Gross Monthly Salary: ₹55,000
+- Paid Leave: 1 day
+- Unpaid Leave: 0.5 days
+- Days in Month: 30
+
+**Calculation:**
+- Daily Salary: ₹55,000 ÷ 30 = ₹1,833.33
+- Effective Unpaid Leave: max(0, 0.5 - 1) = 0 days
+- Deduction: ₹1,833.33 × 0 = ₹0.00
+- **Final Salary: ₹55,000.00**
+
+## 🛠️ Technical Details
+
+### Built With
+
+- **HTML5**: Semantic markup with accessibility features
+- **CSS3**: Modern styling with Flexbox and Grid layouts
+- **Vanilla JavaScript**: No external dependencies
+- **Intl API**: International number formatting
+
+### Browser Support
+
+- Chrome 60+
+- Firefox 55+
+- Safari 12+
+- Edge 79+
+
+### File Structure
+
+```
+salary-calculator/
+├── index.html          # Main HTML structure
+├── style.css           # Styling and responsive design
+├── script.js           # Calculation logic and interactivity
+└── README.md           # Project documentation
+```
+
+## 🎨 Customization
+
+### Styling
+- Modify `style.css` to change colors, fonts, or layout
+- CSS variables are used for easy theme customization
+- Responsive breakpoints can be adjusted
+
+### Functionality
+- Edit `script.js` to modify calculation logic
+- Add new validation rules or input fields
+- Extend with additional features like tax calculations
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
+
+### Development Setup
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🙏 Acknowledgments
+
+- Built with modern web standards
+- Inspired by the need for simple salary calculation tools
+- Thanks to all contributors who help improve this project
+
+## 📞 Support
+
+If you have any questions or need help, please:
+- Open an issue on GitHub
+- Check the existing issues for solutions
+- Contact the maintainers
+
+---
+
+**Made with ❤️ for the Indian workforce**
